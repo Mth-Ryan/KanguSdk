@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using Kangu.Sdk.Models;
 
 namespace  Kangu.Sdk;
 
@@ -31,5 +32,10 @@ public class KanguClient : IKanguClient
             var errContent = await response.Content.ReadFromJsonAsync<KanguRequestError>();
             return KanguResult<Out>.Err(errContent!);
         }
+    }
+
+    public async Task<KanguResult<SimulateOutput>> Simulate(SimulateInput input)
+    {
+        return await MakeRequest<SimulateInput, SimulateOutput>("/simular", HttpMethod.Post, input);
     }
 }
