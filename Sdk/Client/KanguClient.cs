@@ -34,8 +34,8 @@ public class KanguClient : IKanguClient
         }
     }
 
-    public async Task<KanguResult<SimulateOutput>> Simulate(SimulateInput input)
+    public async Task<KanguResult<List<SimulateOutput>>> Simulate(SimulateInput input)
     {
-        return await MakeRequest<SimulateInput, SimulateOutput>("/simular", HttpMethod.Post, input);
+        return await MakeRequest<SimulateInput, List<SimulateOutput>>("/simular", HttpMethod.Post, input);
     }
 }

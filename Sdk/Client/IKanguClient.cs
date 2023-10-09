@@ -4,5 +4,5 @@ namespace Kangu.Sdk;
 
 public interface IKanguClient
 {
-    Task<KanguResult<SimulateOutput>> Simulate(SimulateInput input);
+    Task<KanguResult<List<SimulateOutput>>> Simulate(SimulateInput input);
 }
