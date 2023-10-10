@@ -5,12 +5,13 @@ namespace Kangu.Sdk.Models;
 public class KanguError
 {
     [JsonPropertyName("codigo")]
-    public required uint Codigo { get; set; }
+    public required string Codigo { get; set; }
     [JsonPropertyName("mensagem")]
-    public required uint Mensagem { get; set; }
+    public required string Mensagem { get; set; }
 }
 
 public abstract class KanguOutput
 {
-    public KanguError? error { get; set; }
+    [JsonPropertyName("error")]
+    public KanguError? Error { get; set; }
 }

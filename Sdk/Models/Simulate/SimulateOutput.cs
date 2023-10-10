@@ -10,6 +10,9 @@ public class SimulateOutput : KanguOutput
     [JsonPropertyName("prazoEnt")]
     public required uint PrazoEnt { get; set; }
 
+    [JsonPropertyName("dtPrevEnt")]
+    public required string DtPrevEnt { get; set; }
+
     [JsonPropertyName("descricao")]
     public required string Descricao { get; set; }
 
