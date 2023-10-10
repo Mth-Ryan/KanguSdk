@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Kangu.Sdk.Models;
 
-public class KanguProduct
+public class KanguVolume
 {
     [JsonPropertyName("peso")]
     public required double Peso { get; set; }
@@ -21,9 +21,6 @@ public class KanguProduct
 
     [JsonPropertyName("valor")]
     public required double Valor { get; set; }
-
-    [JsonPropertyName("produto")]
-    public required string Produto { get; set; }
 
     [JsonPropertyName("quantidate")]
     public required uint Quantidade { get; set; }
