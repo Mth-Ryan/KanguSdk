@@ -17,14 +17,17 @@ public class SimulateInput
     public required double PresoMerc { get; set; }
 
     [JsonPropertyName("produtos")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public List<KanguProduct>? Produtos { get; set; }
 
     [JsonPropertyName("volumes")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public List<KanguVolume>? Volumes { get; set; }
 
     [JsonPropertyName("servicos")]
     public required List<string> Servicos { get; set; }
 
     [JsonPropertyName("ordernar")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? Ordenar { get; set; }
 }

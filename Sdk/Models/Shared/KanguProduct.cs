@@ -17,7 +17,8 @@ public class KanguProduct
     public required uint Comprimento { get; set; }
 
     [JsonPropertyName("tipo")]
-    public required string Tipo { get; set; } = "C";
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Tipo { get; set; }
 
     [JsonPropertyName("valor")]
     public required double Valor { get; set; }

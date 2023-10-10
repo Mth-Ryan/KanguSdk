@@ -11,8 +11,8 @@ public class KanguTag
     public required string NumeroTransp { get; set; }
 
     [JsonPropertyName("pdf")]
-    public required string pdf { get; set; }
+    public required string Pdf { get; set; }
 
-    [JsonPropertyName("volumes")]
-    public required KanguVolumeWithItems Volumes { get; set; }
+    [JsonPropertyName("volume")]
+    public required List<KanguVolumeWithItems> Volume { get; set; }
 }

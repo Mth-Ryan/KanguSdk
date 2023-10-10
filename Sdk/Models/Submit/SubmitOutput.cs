@@ -19,6 +19,6 @@ public class SubmitOutput : KanguOutput
     [JsonPropertyName("tarifas")]
     public required List<KanguTariff> Tarifas { get; set; }
 
-    [JsonPropertyName("etiquestas")]
-    public required List<KanguTag> Etiquestas { get; set; }
+    [JsonPropertyName("etiquetas")]
+    public required List<KanguTag> Etiquetas { get; set; }
 }

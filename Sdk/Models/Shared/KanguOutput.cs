@@ -13,5 +13,6 @@ public class KanguError
 public abstract class KanguOutput
 {
     [JsonPropertyName("error")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public KanguError? Error { get; set; }
 }
