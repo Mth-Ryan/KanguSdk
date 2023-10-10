@@ -11,10 +11,12 @@ public class SimulateInput
     public required string CepDestino { get; set; }
 
     [JsonPropertyName("vlrMerc")]
-    public required double VlrMerc { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public double? VlrMerc { get; set; }
 
     [JsonPropertyName("pesoMerc")]
-    public required double PresoMerc { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public double? PresoMerc { get; set; }
 
     [JsonPropertyName("produtos")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

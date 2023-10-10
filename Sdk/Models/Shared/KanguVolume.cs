@@ -8,13 +8,13 @@ public class KanguVolume
     public required double Peso { get; set; }
 
     [JsonPropertyName("altura")]
-    public required uint Altura { get; set; }
+    public required double Altura { get; set; }
 
     [JsonPropertyName("largura")]
-    public required uint Largura { get; set; }
+    public required double Largura { get; set; }
 
     [JsonPropertyName("comprimento")]
-    public required uint Comprimento { get; set; }
+    public required double Comprimento { get; set; }
 
     [JsonPropertyName("tipo")]
     public required string Tipo { get; set; }
