@@ -10,9 +10,6 @@ public class SimulateInput
     [JsonPropertyName("cepDestino")]
     public required string CepDestino { get; set; }
 
-    [JsonPropertyName("origem")]
-    public required string Origem { get; set; }
-
     [JsonPropertyName("vlrMerc")]
     public required double VlrMerc { get; set; }
 
@@ -27,4 +24,7 @@ public class SimulateInput
 
     [JsonPropertyName("servicos")]
     public required List<string> Servicos { get; set; }
+
+    [JsonPropertyName("ordernar")]
+    public string? Ordenar { get; set; }
 }

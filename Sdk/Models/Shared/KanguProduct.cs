@@ -25,6 +25,6 @@ public class KanguProduct
     [JsonPropertyName("produto")]
     public required string Produto { get; set; }
 
-    [JsonPropertyName("quantidate")]
+    [JsonPropertyName("quantidade")]
     public required uint Quantidade { get; set; }
 }

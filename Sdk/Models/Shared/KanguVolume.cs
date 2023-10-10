@@ -22,6 +22,6 @@ public class KanguVolume
     [JsonPropertyName("valor")]
     public required double Valor { get; set; }
 
-    [JsonPropertyName("quantidate")]
+    [JsonPropertyName("quantidade")]
     public required uint Quantidade { get; set; }
 }
