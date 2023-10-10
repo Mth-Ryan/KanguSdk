@@ -48,4 +48,9 @@ public class KanguClient : IKanguClient
     {
         return await MakeRequest<NoBody, TrackingOutput>($"/rastrear/{code}", HttpMethod.Get, null);
     }
+
+    public async Task<KanguResult<NoBody>> Cancel(string code)
+    {
+        return await MakeRequest<NoBody, NoBody>($"/cancelar/{code}", HttpMethod.Get, null);
+    }
 }
