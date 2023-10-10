@@ -43,4 +43,9 @@ public class KanguClient : IKanguClient
     {
         return await MakeRequest<SubmitInput, SubmitOutput>("/solicitar", HttpMethod.Post, input);
     }
+
+    public async Task<KanguResult<TrackingOutput>> Track(string code)
+    {
+        return await MakeRequest<NoBody, TrackingOutput>($"/rastrear/{code}", HttpMethod.Get, null);
+    }
 }
