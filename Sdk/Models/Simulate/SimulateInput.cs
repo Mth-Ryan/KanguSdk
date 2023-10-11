@@ -10,6 +10,9 @@ public class SimulateInput
     [JsonPropertyName("cepDestino")]
     public required string CepDestino { get; set; }
 
+    [JsonPropertyName("origem")]
+    public required string Origem { get; set; }
+
     [JsonPropertyName("vlrMerc")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public double? VlrMerc { get; set; }

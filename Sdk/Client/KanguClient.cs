@@ -1,4 +1,5 @@
-using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 using Kangu.Sdk.Models;
 
 namespace  Kangu.Sdk;
@@ -6,30 +7,62 @@ namespace  Kangu.Sdk;
 public class KanguClient : IKanguClient
 {
     private readonly HttpClient _httpClient;
+    private readonly string _baseUrl;
+    private readonly Func<HttpRequestMessage, HttpClient, Task>? _requestInterceptor;
+    private readonly Func<HttpResponseMessage, HttpClient, Task>? _responseInterceptor;
 
-    public KanguClient(string token, string baseRoute = "https://portal.kangu.com.br/tms/transporte1")
+    public KanguClient(
+        string token,
+        string baseRoute = "https://portal.kangu.com.br/tms/transporte",
+        Func<HttpRequestMessage, HttpClient, Task>? requestInterceptor = null,
+        Func<HttpResponseMessage, HttpClient, Task>? responseInterceptor = null)
     {
         _httpClient = new HttpClient();
-        _httpClient.BaseAddress = new Uri(baseRoute);
+        _baseUrl = baseRoute;
         _httpClient.DefaultRequestHeaders.Add("token", token);
+        _requestInterceptor = requestInterceptor;
+        _responseInterceptor = responseInterceptor;
     }
 
     private async Task<KanguResult<Out>> MakeRequest<In, Out>(string route, HttpMethod method, In? input)
     {
-        var request = new HttpRequestMessage(method, route);
+        var request = new HttpRequestMessage(method, _baseUrl + route);
         if (input is not null)
         {
-            request.Content = JsonContent.Create(input);
+            var body = JsonSerializer.Serialize(input);
+            request.Content = new StringContent(body, Encoding.UTF8, "application/json");
         }
+
+        if (_requestInterceptor is not null)
+        {
+            await _requestInterceptor(request, _httpClient);
+        }
+
         using (var response = await _httpClient.SendAsync(request))
         {
-            if (response.IsSuccessStatusCode)
+            if (_responseInterceptor is not null)
             {
-                var okContent = await response.Content.ReadFromJsonAsync<Out>();
-                return KanguResult<Out>.Ok(okContent!);
+                await _responseInterceptor(response, _httpClient);
             }
 
-            var errContent = await response.Content.ReadFromJsonAsync<KanguRequestError>();
+            if (response.IsSuccessStatusCode)
+            {
+                try
+                {
+                    var okBody = await response.Content.ReadAsStringAsync();
+                    var okContent = JsonSerializer.Deserialize<Out>(okBody);
+                    return KanguResult<Out>.Ok(okContent!);
+                }
+                catch (JsonException)
+                {
+                    var expBody = await response.Content.ReadAsStringAsync();
+                    var expContent = JsonSerializer.Deserialize<KanguRequestError>(expBody);
+                    return KanguResult<Out>.Err(expContent!);
+                }
+            }
+
+            var errBody = await response.Content.ReadAsStringAsync();
+            var errContent = JsonSerializer.Deserialize<KanguRequestError>(errBody);
             return KanguResult<Out>.Err(errContent!);
         }
     }

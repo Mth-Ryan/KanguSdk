@@ -2,12 +2,18 @@ using System.Text.Json.Serialization;
 
 namespace Kangu.Sdk;
 
-public sealed class KanguRequestError
+public class KanguInnerError
 {
     [JsonPropertyName("codigo")]
     public required uint Codigo { get; set; }
-    [JsonPropertyName("Mensagem")]
-    public required uint Mensagem { get; set; }
+    [JsonPropertyName("mensagem")]
+    public required string Mensagem { get; set; }
+}
+
+public class KanguRequestError
+{
+    [JsonPropertyName("error")]
+    public required KanguInnerError Error { get; set; }
 }
 
 public sealed class KanguResult<T>

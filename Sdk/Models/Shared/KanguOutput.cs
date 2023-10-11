@@ -10,7 +10,7 @@ public class KanguError
     public required string Mensagem { get; set; }
 }
 
-public abstract class KanguOutput
+public class KanguOutput
 {
     [JsonPropertyName("error")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

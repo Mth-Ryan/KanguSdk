@@ -11,5 +11,6 @@ public class KanguTariff
     public required string Descricao { get; set; }
 
     [JsonPropertyName("faixa")]
-    public required string Faixa { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Faixa { get; set; }
 }
