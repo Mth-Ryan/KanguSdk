@@ -13,6 +13,7 @@ public class SubmitModelsTests
         {
           ""gerarPdf"": true,
           ""formatoPdf"": ""string"",
+          ""origem"": ""string"",
           ""pedido"": {
             ""tipo"": ""string"",
             ""numero"": ""string"",
@@ -97,6 +98,7 @@ public class SubmitModelsTests
         {
             GerarPdf = true,
             FormatoPdf = "string",
+            Origem = "string",
             Pedido = new KanguOrder
             {
                 Tipo = "string",
@@ -197,6 +199,7 @@ public class SubmitModelsTests
         {
           ""gerarPdf"": true,
           ""formatoPdf"": ""string"",
+          ""origem"": ""string"",
           ""pedido"": {
             ""tipo"": ""string"",
             ""numero"": ""string"",
@@ -281,6 +284,7 @@ public class SubmitModelsTests
         {
             GerarPdf = true,
             FormatoPdf = "string",
+            Origem = "string",
             Pedido = new KanguOrder
             {
                 Tipo = "string",
@@ -431,7 +435,7 @@ public class SubmitModelsTests
         {
             Codigo = "string",
             VlrFrete = 0.0,
-            PrazoEnt = 0.0,
+            PrazoEnt = 0,
             DtPrevEnt = "string",
             Tarifas = new List<KanguTariff>
             {
@@ -449,33 +453,6 @@ public class SubmitModelsTests
                     Numero = "string",
                     NumeroTransp = "string",
                     Pdf = "string",
-                    Volume = new List<KanguVolumeWithItems>
-                    {
-                        new KanguVolumeWithItems
-                        {
-                            Peso = "string",
-                            Altura = "string",
-                            Largura = "string",
-                            Comprimento = "string",
-                            Tipo = "string",
-                            Valor = 0.0,
-                            Quantidade = 0,
-                            Itens = new List<KanguItem>
-                            {
-                                new KanguItem
-                                {
-                                    Produto = "string",
-                                    Peso = "string",
-                                    Altura = "string",
-                                    Largura = "string",
-                                    Comprimento = "string",
-                                    Tipo = "string",
-                                    Valor = 0.0,
-                                    Quantidade = 0,
-                                }
-                            }
-                        }
-                    }
                 }
             },
             Error = new KanguError

@@ -15,6 +15,7 @@ public class SimulateModelsTests
           ""cepDestino"": ""string"",
           ""vlrMerc"": 0,
           ""pesoMerc"": 0,
+          ""origem"": ""string"",
           ""volumes"": [
             {
               ""peso"": 0,
@@ -50,6 +51,7 @@ public class SimulateModelsTests
         {
             CepOrigem = "string",
             CepDestino = "string",
+            Origem = "string",
             VlrMerc = 0.0,
             PresoMerc = 0.0,
             Volumes = new List<KanguVolume>
@@ -102,6 +104,7 @@ public class SimulateModelsTests
           ""cepDestino"": ""string"",
           ""vlrMerc"": 0,
           ""pesoMerc"": 0,
+          ""origem"": ""string"",
           ""volumes"": [
             {
               ""peso"": 0,
@@ -139,6 +142,7 @@ public class SimulateModelsTests
             CepDestino = "string",
             VlrMerc = 0.0,
             PresoMerc = 0.0,
+            Origem = "string",
             Volumes = new List<KanguVolume>
             {
                 new KanguVolume
@@ -183,6 +187,7 @@ public class SimulateModelsTests
           ""vlrFrete"": 0,
           ""prazoEnt"": 0,
           ""dtPrevEnt"": ""string"",
+          ""dtPrevEntMin"": ""string"",
           ""tarifas"": [
             {
               ""valor"": 0,
@@ -190,6 +195,18 @@ public class SimulateModelsTests
               ""faixa"": ""string""
             }
           ],
+          ""idSimulacao"": 0,
+          ""idTransp"": 0,
+          ""idTranspResp"": 0,
+          ""cnpjTransp"": ""string"",
+          ""cnpjTranspResp"": ""string"",
+          ""alertas"": [
+            ""string""
+          ],
+          ""nf_obrig"": ""string"",
+          ""url_logo"": ""string"",
+          ""transp_nome"": ""string"",
+          ""servico"": ""string"",
           ""error"": {
             ""codigo"": ""string"",
             ""mensagem"": ""string""
@@ -204,6 +221,7 @@ public class SimulateModelsTests
             VlrFrete = 0.0,
             PrazoEnt = 0,
             DtPrevEnt = "string",
+            DtPrevEntMin = "string",
             Tarifas = new List<KanguTariff>
             {
                 new KanguTariff
@@ -213,6 +231,19 @@ public class SimulateModelsTests
                     Faixa = "string"
                 }
             },
+            IdSimulacao = 0,
+            IdTransp = 0,
+            IdTranspResp = 0,
+            CnpjTransp = "string",
+            CnpjTranspResp = "string",
+            Alertas = new List<string>
+            {
+                "string",
+            },
+            NfObrig = "string",
+            UrlLogo = "string",
+            TranspNome = "string",
+            Servico = "string",
             Error = new KanguError
             {
                 Codigo = "string",
