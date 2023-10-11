@@ -11,7 +11,7 @@ public class SubmitOutput : KanguOutput
     public required double VlrFrete { get; set; }
 
     [JsonPropertyName("prazoEnt")]
-    public required double PrazoEnt { get; set; }
+    public required uint PrazoEnt { get; set; }
 
     [JsonPropertyName("dtPrevEnt")]
     public required string DtPrevEnt { get; set; }

@@ -14,6 +14,9 @@ public class SubmitInput
     [JsonPropertyName("pedido")]
     public required KanguOrder Pedido { get; set; }
 
+    [JsonPropertyName("origem")]
+    public required string Origem { get; set; }
+
     [JsonPropertyName("remetente")]
     public required KanguUser Remetente { get; set; }
 

@@ -11,8 +11,10 @@ public class KanguTag
     public required string NumeroTransp { get; set; }
 
     [JsonPropertyName("pdf")]
-    public required string Pdf { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Pdf { get; set; }
 
-    [JsonPropertyName("volume")]
-    public required List<KanguVolumeWithItems> Volume { get; set; }
+    // Inconsistente entre respostas
+    /* [JsonPropertyName("volume")] */
+    /* public required KanguVolumeWithItems Volume { get; set; } */
 }

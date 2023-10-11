@@ -53,8 +53,10 @@ public class KanguClient : IKanguClient
                     var okContent = JsonSerializer.Deserialize<Out>(okBody);
                     return KanguResult<Out>.Ok(okContent!);
                 }
-                catch (JsonException)
+                catch (JsonException e)
                 {
+                    throw e;
+
                     var expBody = await response.Content.ReadAsStringAsync();
                     var expContent = JsonSerializer.Deserialize<KanguRequestError>(expBody);
                     return KanguResult<Out>.Err(expContent!);
